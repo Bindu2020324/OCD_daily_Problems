@@ -34,3 +34,6 @@ int main(){
     else cout<<("no");
     return 0;
 }
+
+// T.C.=O(Log n)
+//     S.C.=O(1)
