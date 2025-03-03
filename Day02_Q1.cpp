@@ -13,6 +13,7 @@ class Solution {
         // '?' CONSONANT OR VOWELS KE BEECH BHI HO SKTE HAI..SO DONT FORGET TO CONSIDER THIS CASE***
         int countv=0,countc=0;
         for(int i=0;i<n;i++){
+          // CHECK IMMIDIATLY
             // if(countv>5 || countc>3){
             //     return 0;
             // }
