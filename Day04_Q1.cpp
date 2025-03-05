@@ -1,3 +1,7 @@
+// Question_1
+// https://leetcode.com/problems/count-distinct-numbers-on-board/description/?envType=problem-list-v2&envId=math
+// LT 2549
+
 class Solution {
 public:
     int distinctIntegers(int n) {
