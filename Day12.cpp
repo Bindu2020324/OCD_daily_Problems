@@ -26,7 +26,7 @@ public:
 
 
 // Q2------> Finding first and last occurence of an ele in a sorted array......lC 34
-
+leetcode: 34
 // M1-> TC=O(logn)+n
 
 // class Solution {
@@ -149,4 +149,80 @@ public:
         }
 return ans;
    }
+};
+
+
+
+
+// Q3-----> search index or insert at correct position,
+// TC=O(logn)
+leetcode: 35
+
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        // length solution 
+        
+        // if(nums.size()==0) return 0;
+        // int st=0,end=nums.size()-1;
+        // int ans=0;
+        // while(st<=end){
+        //     int mid=st+(end-st)/2;
+        //     if(nums[mid]==target){
+        //         ans=mid;
+        //         break;
+        //     }
+
+        //     else if(nums[mid]<target){
+        
+        //         if((mid!=nums.size()-1 && nums[mid+1]>target) || mid==(nums.size()-1)){
+        //             ans=mid+1;
+        //             break;
+        //         }
+        //         st=mid+1;
+        //     }
+
+        //     else if(nums[mid]>target){
+        //         if(mid==0 ){
+        //             ans=mid;
+        //             break;
+        //         }
+        //         end=mid-1;
+        //     }
+        // }
+        // return ans;
+
+
+        // int n= nums.size();
+        // int low= 0;
+        // int high = n-1;
+        // int ans=n;
+        // while (low<= high){
+        //     int mid =(low + high)/2;
+        //     if(nums[mid]>=target){
+        //         ans= mid;
+        //         high= mid-1;
+        //     }
+        //     else {
+        //         low= mid+1;
+        //     }
+        // }
+        // return ans;
+
+        int right = nums.size()-1;
+        int left = 0;
+        while(left<=right){
+            int mid = left+ ((right-left)/2);
+            if(nums[mid]== target){
+                return mid;
+            }
+            else if(nums[mid]<target){
+                left = mid+1;
+            }
+            else{
+                right = mid - 1;
+            }
+        }
+        return left;
+    }
 };
