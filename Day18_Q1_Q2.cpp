@@ -29,3 +29,27 @@ public:
 
     }
 };
+
+
+Q2  leetcode 14-> longest common prefix in a array of string
+TC=O(nlogn), sc=o(m)
+
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        // TC=O(nlogn), sc=o(m)
+        string ans="";
+        int n=strs.size();
+        sort(strs.begin(),strs.end()); //this will sort the string array as in dictonary order
+        // so now we only have to compare first and last string
+        for(int i=0; i<min(strs[0].size(),strs[n-1].size()); i++){
+            if(strs[0][i] != strs[n-1][i]){
+                return ans;
+            }
+            else{
+                ans+=strs[0][i];
+            }
+        }
+        return ans;
+    }
+};
