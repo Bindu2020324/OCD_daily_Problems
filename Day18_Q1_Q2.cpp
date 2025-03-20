@@ -20,6 +20,12 @@ public:
         if(srr==trr) return true;
         else return false;
 
+         M2  TC=O(nlogn)
+      
+        sort(s.begin(),s.end());
+        sort(t.begin(),t.end());
+        if(s==t) return true;
+        else return false;
 
     }
 };
