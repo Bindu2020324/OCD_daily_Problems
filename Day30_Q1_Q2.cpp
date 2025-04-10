@@ -1,4 +1,72 @@
-Q2 -> LC: 19. Remove Nth Node From End of List
+Q1 --->lc: 148. Sort List
+tc=o(nlogn) sc=o(1)
+sort using merge sort
+class Solution {
+public:
+    ListNode* median(ListNode*head){
+        ListNode*slow=head;
+        ListNode*fast=head->next;
+        while(fast && fast->next){
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        return slow;
+    }
+
+    // ****
+    ListNode* merge(ListNode*l ,ListNode*r){
+        // using dummy node
+        ListNode*ans=new ListNode();
+        ListNode*head_ans=ans;
+        // ans->val=0;      
+        // ans->next=NULL;     
+        while(l!=NULL && r!= NULL){
+            if(l->val <= r->val){
+                ans->next = l;
+                l=l->next;
+            }
+            else{
+                ans->next=r;
+                r=r->next;
+            }
+            ans=ans->next;
+        }
+        // while(l){
+        //     ans->next=l;
+        //     l=l->next;
+        //     ans=ans->next;
+        // 
+        if(l){
+            ans->next=l;
+        }
+        // while(r){
+        //     ans->next=r;
+        //     r=r->next;
+        //     ans=ans->next;
+        // }
+        if(r){
+            ans->next=r;
+        }
+        return head_ans->next;
+    }
+
+    ListNode* sortList(ListNode* head) {
+        // using merge sort
+        if(head==NULL || head->next==NULL) return head;
+        ListNode*mid=median(head);
+        ListNode*right=mid->next;
+        ListNode*left=head;
+        mid->next=NULL;
+        ListNode*l=sortList(left);
+        ListNode*r=sortList(right);
+        head=merge(l,r);
+        return head;
+    }
+};
+
+
+
+Q2 ------> LC: 19. Remove Nth Node From End of List
 // TC=O(n),sc=o(1)      
 
 /**
